@@ -1,6 +1,6 @@
 import { supabaseAdmin } from '@/lib/supabase';
 import NicknameBar from '@/components/NicknameBar';
-import PostBox from '@/components/PostBox';
+import PostForm from '@/components/PostBox';
 import VoteButtons from '@/components/VoteButtons';
 
 export const dynamic = 'force-dynamic';
@@ -13,7 +13,7 @@ export default async function Home() {
     <main>
       <h1>Анонимная доска</h1>
       <NicknameBar />
-      <PostBox />
+      <PostForm />
       <hr />
 
       {posts?.length

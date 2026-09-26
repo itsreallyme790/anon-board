@@ -1,6 +1,6 @@
 import { supabaseAdmin } from '@/lib/supabase';
 import NicknameBar from '@/components/NicknameBar';
-import PostForm from '@/components/PostBox';
+import PostForm from '@/components/PostForm';
 import VoteButtons from '@/components/VoteButtons';
 
 export const dynamic = 'force-dynamic';

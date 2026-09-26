@@ -1,19 +1,19 @@
-import { supabase } from '@/lib/supabase';
+import { supabaseAdmin } from '@/lib/supabase';
 import NicknameBar from '@/components/NicknameBar';
-import PostForm from '@/components/PostForm';
+import PostBox from '@/components/PostBox';
 import VoteButtons from '@/components/VoteButtons';
 
 export const dynamic = 'force-dynamic';
 
 export default async function Home() {
-  const { data: posts } = await supabase
+  const { data: posts } = await supabaseAdmin
     .from('posts').select('*').order('created_at', { ascending: false }).limit(50);
 
   return (
     <main>
       <h1>Анонимная доска</h1>
       <NicknameBar />
-      <PostForm />
+      <PostBox />
       <hr />
 
       {posts?.length

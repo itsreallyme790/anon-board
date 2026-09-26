@@ -1,9 +1,16 @@
+import { cookies } from 'next/headers';
+import { redirect } from 'next/navigation';
 import { supabase } from '@/lib/supabase';
+import { isAdmin } from '@/lib/admin';
 import AdminList from '@/components/AdminList';
 
 export const dynamic = 'force-dynamic';
 
 export default async function AdminPanel({ searchParams }) {
+  const cookieStore = await cookies();
+  const token = cookieStore.get('admin')?.value;
+  if (!isAdmin(token)) redirect('/admin');
+
   const params = await searchParams;
   const tab = params?.tab === 'comments' ? 'comments' : 'posts';
 

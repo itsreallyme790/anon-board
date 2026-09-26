@@ -34,6 +34,7 @@ export default function PostForm() {
     e.target.reset();
     setBusy(false);
     router.refresh();
+    window.location.reload();
   }
 
   return (

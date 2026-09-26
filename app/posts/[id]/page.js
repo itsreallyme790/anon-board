@@ -1,4 +1,4 @@
-import { supabase } from '@/lib/supabase';
+import { supabaseAdmin } from '@/lib/supabase';
 import VoteButtons from '@/components/VoteButtons';
 import CommentForm from '@/components/CommentForm';
 import CommentsList from '@/components/CommentsList';
@@ -8,8 +8,10 @@ export const dynamic = 'force-dynamic';
 export default async function PostPage({ params }) {
   const { id } = await params;
 
-  const { data: post } = await supabase.from('posts').select('*').eq('id', id).single();
-  const { data: comments } = await supabase
+  const { data: post } = await supabaseAdmin
+    .from('posts').select('*').eq('id', id).single();
+
+  const { data: comments } = await supabaseAdmin
     .from('comments').select('*').eq('post_id', id).order('created_at');
 
   if (!post) return <main><p>Пост не найден</p></main>;

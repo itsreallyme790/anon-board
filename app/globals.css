@@ -1,0 +1,133 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #ffffff;
+  color: #000000;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 32px 16px 64px;
+  font-size: 15px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: #000; text-decoration: underline; text-underline-offset: 3px; }
+a:hover { text-decoration: none; }
+
+h1 { font-size: 24px; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 4px; }
+h3 { font-size: 16px; font-weight: 700; margin: 24px 0 12px; }
+
+hr { border: none; border-top: 2px solid #000; margin: 24px 0; }
+
+input, textarea, button {
+  font-family: inherit;
+  font-size: 14px;
+  border: 1.5px solid #000;
+  background: #fff;
+  color: #000;
+  padding: 9px 12px;
+  border-radius: 0;
+  outline: none;
+}
+input:focus, textarea:focus { background: #f5f5f5; }
+textarea { width: 100%; resize: vertical; }
+
+button {
+  cursor: pointer;
+  padding: 9px 18px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+button:hover:not(:disabled) { background: #000; color: #fff; }
+button:disabled { opacity: 0.5; cursor: wait; }
+
+.nick-row {
+  margin-bottom: 16px; font-size: 13px;
+  display: flex; align-items: center; gap: 8px;
+}
+.nick-row input { width: 140px; padding: 5px 8px; font-size: 13px; }
+.nick-row button { padding: 5px 12px; font-size: 12px; }
+
+.form-block { border: 1.5px solid #000; padding: 16px; margin-bottom: 16px; }
+.form-block textarea { margin-bottom: 8px; }
+.form-block input[type=file] { border: none; padding: 4px 0; font-size: 13px; }
+.form-block button { margin-top: 8px; }
+
+.post, .comment {
+  border: 1.5px solid #000;
+  padding: 16px;
+  margin-bottom: 14px;
+  background: #fff;
+}
+.comment { border-width: 1px; padding: 12px; }
+
+.post img, .comment img {
+  max-width: 100%; display: block; margin: 10px 0; border: 1px solid #000;
+}
+
+.meta {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #666;
+  margin-bottom: 8px;
+  display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+}
+.meta b { color: #000; font-weight: 800; }
+
+.text { margin: 8px 0; white-space: pre-wrap; word-break: break-word; }
+
+.vote { display: inline-flex; align-items: center; gap: 6px; margin-top: 10px; }
+.vote form { display: inline; }
+
+.vote button {
+  border: 1.5px solid #000;
+  padding: 3px 10px;
+  font-size: 15px;
+  line-height: 1;
+  font-weight: 800;
+  background: #fff;
+}
+.vote button:hover { background: #000; color: #fff; }
+
+.vote-count { font-weight: 800; font-size: 14px; min-width: 18px; text-align: center; }
+
+.del-btn {
+  border: 1px solid #000;
+  background: #fff;
+  color: #000;
+  font-size: 10px;
+  padding: 2px 8px;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 700;
+}
+.del-btn:hover { background: #000; color: #fff; }
+
+.back-link { font-size: 13px; display: inline-block; margin-bottom: 12px; }
+.empty { color: #666; font-style: italic; padding: 16px 0; }
+
+/* Админка */
+.admin-top {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 24px; padding-bottom: 16px; border-bottom: 2px solid #000;
+}
+.admin-tabs { display: flex; gap: 8px; margin-bottom: 20px; }
+.admin-tabs a {
+  border: 1.5px solid #000; padding: 6px 14px; text-decoration: none;
+  font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;
+}
+.admin-tabs a.active { background: #000; color: #fff; }
+
+.login-box {
+  border: 1.5px solid #000; padding: 24px; max-width: 360px; margin: 60px auto;
+}
+.login-box h1 { font-size: 18px; margin-bottom: 16px; text-align: center; }
+.login-box input { width: 100%; margin-bottom: 12px; }
+.login-box button { width: 100%; }
+.login-error {
+  color: #000; background: #eee; padding: 8px; margin-bottom: 12px;
+  font-size: 13px; border-left: 3px solid #000;
+}

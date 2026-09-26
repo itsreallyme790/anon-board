@@ -12,7 +12,7 @@ function ipHash(req) {
 export async function POST(req) {
   const form = await req.formData();
   const text = (form.get('text') || '').toString().trim().slice(0, 5000);
- const nickname = (form.get('nickname') || 'Anon').toString().trim().slice(0, 20) || 'Anon';
+  const nickname = (form.get('nickname') || 'Anon').toString().trim().slice(0, 20) || 'Anon';
   const file = form.get('image');
 
   let image_url = null;
@@ -35,11 +35,14 @@ export async function POST(req) {
     image_url = data.publicUrl;
   }
 
-  if (!text && !image_url) return NextResponse.redirect(new URL('/', req.url));
+  if (!text && !image_url) {
+    return NextResponse.json({ error: 'empty' }, { status: 400 });
+  }
 
-  await supabaseAdmin.from('posts').insert({
+  const { error } = await supabaseAdmin.from('posts').insert({
     text, image_url, nickname, ip_hash: ipHash(req)
   });
 
-  return NextResponse.redirect(new URL('/', req.url));
+  if (error) return NextResponse.json({ error: error.message }, { status: 500 });
+  return NextResponse.json({ ok: true });
 }
